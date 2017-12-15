@@ -2,7 +2,7 @@
 for (Customer)
 created on (date)
 
-============
+============  
 Diagram overview of environment? (use https://www.draw.io/)  
 Local link to S3: 
 
@@ -119,7 +119,7 @@ Hostname:
 OS:
 (lsb_release -a)
 
-Specs (per server)
+Specs (per server)  
 VM (what kind of) or bare metal:  
 CPU:  
 (cat /proc/cpuinfo > cpu.txt)
