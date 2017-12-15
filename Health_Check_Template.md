@@ -120,20 +120,20 @@ OS:
 (lsb_release -a)
 
 Specs (per server)
-VM (what kind of) or bare metal:
-CPU: 
+VM (what kind of) or bare metal:  
+CPU:  
 (cat /proc/cpuinfo > cpu.txt)
 
-RAM: 
+RAM:  
 (free -m > ram.txt)
 
-HDD: 
+HDD:  
 (df -h > diskfree.txt)
 
-Partitions:
+Partitions:  
 (lsblk > lsblk.txt)
 
 cp /etc/fstab .
 
-Swappiness:
+Swappiness:  
 (cat /proc/sys/vm/swappiness)
