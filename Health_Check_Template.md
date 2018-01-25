@@ -65,7 +65,7 @@ Logs (visual inspection):
 
 #### PHP
 Version:
-(php -v php.txt)
+(php -v > php.txt)
 
 Module:
 (php -m >> php.txt)
@@ -73,11 +73,27 @@ Module:
 Konfig (Apache und cli) "php -i > php_info.txt"
 
 #### APCu
-php -i | grep -i apcu
-REDIS
-redis-cli monitor
-redis-cli --stat
+- php -i | grep -i apcu
+- create phpinfo.php and check ACPU status
+```
+<?php
+phpinfo();
+?>
+```
 
+## REDIS
+- check Redis functionality with:  
+```
+redis-cli monitor
+```
+- benchmark Redis with:  
+```
+redis-benchmark
+```
+and check performance with:
+```
+redis-cli --stat
+```
 ## Database
 
 Number of servers:
