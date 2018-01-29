@@ -6,7 +6,7 @@ read customer
 # create date string
 today=$(date +%Y_%m_%d)
 # create filename for output file
-outfile=health_check_$today.md
+outfile=health_check_$customer_$today.md
 # create output file
 touch $outfile
 
