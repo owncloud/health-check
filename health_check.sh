@@ -1,12 +1,14 @@
 #!/bin/bash
 
-echo "Please enter your company name, followed by [ENTER]:"
+echo "Please enter your company name, followed by [ENTER]."
+echo "(only alphanumeric characters uand underscore):"
 read customer
+customer=$(echo "$customer" | tr " " "_")
 
 # create date string
 today=$(date +%Y_%m_%d)
 # create filename for output file
-outfile=health_check_$customer_$today.md
+outfile="health_check_${customer}_$today.md"
 # create output file
 touch $outfile
 
