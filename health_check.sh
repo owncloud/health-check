@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Please enter your company name, followed by [ENTER]."
-echo "(only alphanumeric characters uand underscore):"
+echo "(only alphanumeric characters and underscore):"
 read customer
 customer=$(echo "$customer" | tr " " "_")
 
