@@ -50,12 +50,14 @@ printf "for $customer  \n" >> $outfile
 printf "created on $today\n" >> $outfile
 printf "\n" >> $outfile
 
+# get FQDN
 printf "## Hostname:\n" >> $outfile
 printf '```\n' >> $outfile
 hostname -f >> $outfile
 printf '```\n' >> $outfile
 printf "\n" >> $outfile
 
+# write OS
 printf "## OS:\n" >> $outfile
 printf '```\n' >> $outfile
 printf "$OS " >> $outfile
@@ -63,18 +65,21 @@ printf "$VER\n" >> $outfile
 printf '```\n' >> $outfile
 printf "\n" >> $outfile
 
+# number of CPUs
 printf "## Number of CPUs:\n" >> $outfile
 printf '```\n' >> $outfile
 lscpu | grep '^CPU(s):' | rev | cut -b 1-2 | rev >> $outfile
 printf '```\n' >> $outfile
 printf "\n" >> $outfile
 
+# RAM
 printf "## RAM\n" >> $outfile
 printf '```\n' >> $outfile
 free -m >> $outfile
 printf '```\n' >> $outfile
 printf "\n" >> $outfile
 
+# Hard Disk information
 printf "## HDD\n" >> $outfile
 printf "output of df -h:  \n" >> $outfile
 printf '```\n' >> $outfile
@@ -86,10 +91,16 @@ printf '```\n' >> $outfile
 lsblk >> $outfile
 printf '```\n' >> $outfile
 printf "\n" >> $outfile
+printf '```\n' >> $outfile
+printf "\n" >> $outfile
+cat /etc/fstab >> $outfile
+printf '```\n' >> $outfile
 
+# Swappiness
 printf "## Swappiness:\n" >> $outfile
 printf '```\n' >> $outfile
 cat /proc/sys/vm/swappiness >> $outfile
 printf '```\n' >> $outfile
 
+# if OS=RedHat getenforce
 #sudo -u www-data /usr/bin/php /var/www/owncloud/occ config-report:generate > config-report_$today.json
