@@ -103,4 +103,5 @@ cat /proc/sys/vm/swappiness >> $outfile
 printf '```\n' >> $outfile
 
 # if OS=RedHat getenforce
-#sudo -u www-data /usr/bin/php /var/www/owncloud/occ config-report:generate > config-report_$today.json
+# sudo -u www-data /usr/bin/php /var/www/owncloud/occ config-report:generate > config-report_$today.json
+# SELECT count (*) FROM oc_filecache WHERE storage NOT IN (SELECT numeric_id FROM oc_storages);
