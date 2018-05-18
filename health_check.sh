@@ -96,6 +96,18 @@ printf "\n" >> $outfile
 cat /etc/fstab >> $outfile
 printf '```\n' >> $outfile
 
+# PHP
+printf "## PHP\n" >> $outfile
+printf "Version information:\n" >> $outfile
+printf '```\n' >> $outfile
+php -v >> $outfile
+printf '```\n' >> $outfile
+printf "PHP modules:\n" >> $outfile
+printf '```\n' >> $outfile
+php -m >> $outfile
+printf '```\n' >> $outfile
+
+
 # Swappiness
 printf "## Swappiness:\n" >> $outfile
 printf '```\n' >> $outfile
