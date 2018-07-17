@@ -41,15 +41,15 @@ Swappiness:
 
 config.php
 
-owncloud.log (visual inspection)
+- [ ] owncloud.log (visual inspection)
 
-Ownerships and Permissions
+- [ ] Ownerships and Permissions
 (as per https://doc.owncloud.com/server/10.0/admin_manual/installation/installation_wizard.html#post-installation-steps-label)
 
-config report
+- [ ] config report
 (sudo -u www-data php /var/www/owncloud/occ configreport:generate > config_report.txt)
 
-LDAP config:
+- [ ] LDAP config:
 (sudo -u www-data php /var/www/owncloud/occ ldap:show-config > ldap_config.txt)
 
 #### Apache
@@ -82,15 +82,15 @@ phpinfo();
 ```
 
 ## REDIS
-- check Redis functionality with:  
+- [ ] check Redis functionality with:  
 ```
 redis-cli monitor
 ```
-- benchmark Redis with:  
+- [ ] benchmark Redis with:  
 ```
 redis-benchmark
 ```
-and check performance with:
+- [ ] and check performance with:
 ```
 redis-cli --stat
 ```
