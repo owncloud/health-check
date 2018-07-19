@@ -104,6 +104,14 @@ Hostname:
 OS:
 (lsb_release -a)
 
+What kind and which Version of Database: 
+
+Database:
+
+Version 
+SELECT VERSION();
+
+
 Specs (per server)  
 VM (what kind of) or bare metal:  
 CPU:  
@@ -153,3 +161,8 @@ cp /etc/fstab .
 
 Swappiness:  
 (cat /proc/sys/vm/swappiness)
+
+Redis Version 
+
+redis-server -v
+
