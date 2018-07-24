@@ -6,40 +6,43 @@ created on (date)
 Diagram overview of environment? (use https://www.draw.io/)  
 Local link to S3: 
 
+Start Health check if possible with perl nikto.pl -h https://FDQN:443/ -o FDQN -F txt if publicly accessible from your local Computer.
+https://github.com/sullo/nikto
+
 ## Web server
-Number of servers:
+- [ ] Number of servers:
 
 Specs (per server)  
-VM (what kind of) or bare metal:
+- [ ] VM (what kind of) or bare metal:
 
 Hostname:  
-(hostname -f)
+- [ ] (hostname -f)
 
 OS:  
-(lsb_release -a)
+- [ ] (lsb_release -a)
 
 CPU:  
-(cat /proc/cpuinfo > cpu.txt)
+- [ ] (cat /proc/cpuinfo > cpu.txt)
 
 RAM:  
-(free -m > ram.txt)
+- [ ] (free -m > ram.txt)
 
 HDD:  
-(df -h > diskfree.txt)
+- [ ] (df -h > diskfree.txt)
 
 Partitions:  
-(lsblk > lsblk.txt)
+- [ ] (lsblk > lsblk.txt)
 
 /etc/fstab:
 
 Swappiness:  
-(cat /proc/sys/vm/swappiness)
+- [ ] (cat /proc/sys/vm/swappiness)
 
 ### Software
 
 #### ownCloud
 
-config.php
+- [ ] config.php
 
 - [ ] owncloud.log (visual inspection)
 
@@ -52,34 +55,39 @@ config.php
 - [ ] LDAP config:
 (sudo -u www-data php /var/www/owncloud/occ ldap:show-config > ldap_config.txt)
 
+- [ ] Apps List (shows all apps installed, enabled and disabled)
+
+(sudo -u www-data php /var/www/owncloud/occ app:list > app_list.txt
+
 #### Apache
 Module
-(apache2ctl -M > apache-modules.txt)
+- [ ] (apache2ctl -M > apache-modules.txt)
 
 Config:
-(in /etc/apache2/)
+- [ ] (in /etc/apache2/)
 
 Logs (visual inspection):
-(in /var/log/apache2/)
+- [ ] (in /var/log/apache2/)
 
 
 #### PHP
 Version:
-(php -v > php.txt)
+- [ ] (php -v > php.txt)
 
 Module:
-(php -m >> php.txt)
+- [ ] (php -m >> php.txt)
 
 Konfig (Apache und cli) "php -i > php_info.txt"
 
 #### APCu
-- php -i | grep -i apcu
-- create phpinfo.php and check ACPU status
+- [ ]  php -i | grep -i apcu
+- [ ]  create phpinfo.php and check ACPU status
 ```
 <?php
 phpinfo();
 ?>
 ```
+Or Memcached
 
 ## REDIS
 - [ ] check Redis functionality with:  
@@ -96,73 +104,79 @@ redis-cli --stat
 ```
 ## Database
 
-Number of servers:
+- [ ] Number of servers:
 
-Hostname:
+- [ ] Hostname:
 (hostname -f)
 
-OS:
+- [ ] OS:
 (lsb_release -a)
 
-What kind and which Version of Database: 
+- [ ] What kind and which Version of Database: 
 
 Database:
 
 Version 
-SELECT VERSION();
+- [ ] SELECT VERSION();
 
 
 Specs (per server)  
-VM (what kind of) or bare metal:  
+- [ ] VM (what kind of) or bare metal:  
 CPU:  
-(cat /proc/cpuinfo > cpu.txt)
+- [ ] (cat /proc/cpuinfo > cpu.txt)
 
 RAM:  
-(free -m > ram.txt)
+- [ ] (free -m > ram.txt)
 
 HDD:  
-(df -h > diskfree.txt)
+- [ ] (df -h > diskfree.txt)
 
 Partitions:  
-(lsblk > lsblk.txt)
+- [ ] (lsblk > lsblk.txt)
 
-cp /etc/fstab .
+- [ ] cp /etc/fstab .
 
 Swappiness:  
-(cat /proc/sys/vm/swappiness)
+- [ ] (cat /proc/sys/vm/swappiness)
 
 ## Redis
 
 - if installed on Web or DB, note here and delete the rest
 
-Number of servers:
+- [ ] Number of servers:
 
-Hostname:
+- [ ] Hostname:
 (hostname -f)
 
-OS:
+- [ ] OS:
 (lsb_release -a)
 
 Specs (per server)  
-VM (what kind of) or bare metal:  
-CPU:  
+- [ ] VM (what kind of) or bare metal:  
+- [ ] CPU:  
 (cat /proc/cpuinfo > cpu.txt)
 
-RAM:  
+- [ ] RAM:  
 (free -m > ram.txt)
 
-HDD:  
+- [ ] HDD:  
 (df -h > diskfree.txt)
 
-Partitions:  
+- [ ] Partitions:  
 (lsblk > lsblk.txt)
 
-cp /etc/fstab .
+- [ ] cp /etc/fstab .
 
-Swappiness:  
+- [ ] Swappiness:  
 (cat /proc/sys/vm/swappiness)
 
 Redis Version 
 
-redis-server -v
+- [ ] redis-server -v
+
+
+
+## Diff from Tarball to Original
+
+
 
