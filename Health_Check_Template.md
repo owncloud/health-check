@@ -57,7 +57,10 @@ Swappiness:
 
 - [ ] Apps List (shows all apps installed, enabled and disabled)
 
-(sudo -u www-data php /var/www/owncloud/occ app:list > app_list.txt
+(sudo -u www-data php /var/www/owncloud/occ app:list > app_list.txt)
+
+- [ ] Check code intergrity
+(occ integrity:check-core --output=json_pretty -vvv > integrity_check_core.txt)
 
 #### Apache
 Module
