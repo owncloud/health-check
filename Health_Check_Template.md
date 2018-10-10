@@ -178,8 +178,11 @@ Redis Version
 - [ ] redis-server -v
 
 
-
 ## Diff from Tarball to Original
+
+## SSL Check for all Servers
+
+- [ ] Check for valid ssl configurations
 
 
 
