@@ -120,6 +120,12 @@ printf '```\n' >> $outfile
 systemctl list-unit-files | grep enabled | sort >> $outfile
 printf '```\n' >> $outfile
 
+# List of Apache modules
+printf "## List of Apache modules:\n" >> $outfile
+printf '```\n' >> $outfile
+apache2ctl -M >> $outfile
+printf '```\n' >> $outfile
+
 # if OS=RedHat getenforce
 # apache2ctl -M
 # sudo -u www-data /usr/bin/php /var/www/owncloud/occ configreport:generate > config-report_$customer_$today.json
