@@ -128,5 +128,5 @@ printf '```\n' >> $outfile
 
 # if OS=RedHat getenforce
 # apache2ctl -M
-# sudo -u www-data /usr/bin/php /var/www/owncloud/occ configreport:generate > config-report_$customer_$today.json
+sudo -u www-data /usr/bin/php /var/www/owncloud/occ configreport:generate > config-report_$customer_$today.json
 # SELECT count (*) FROM oc_filecache WHERE storage NOT IN (SELECT numeric_id FROM oc_storages);
