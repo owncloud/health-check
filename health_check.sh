@@ -1,16 +1,39 @@
 #!/bin/bash
+# Create folder for all information collected
+mkdir -p  ownCloud_Health_Check
+dir="ownCloud_Health_Check"
 
 echo "Please enter your company name, followed by [ENTER]."
 echo "(only alphanumeric characters and underscore):"
 read customer
 customer=$(echo "$customer" | tr " " "_")
 
+echo "Please enter the path of the ownCloud Installation"
+read ocpath
+ocpath=$(echo "$ocpath")
+echo "Your ownCloud installation path is: " $ocpath
+
+echo "Please enter the name of your Webserver User"
+read htuser
+htuser=$(echo "$htuser")
+echo "Your webserver user is " $htuser
+
+echo "Please enter the name of your Webserver Group"
+read htgroup
+htgroup=$(echo "$htgroup")
+echo "your webserver group is " $htgroup
+
 # create date string
 today=$(date +%Y_%m_%d)
 # create filename for output file
 outfile="health_check_${customer}_$today.md"
 # create output file
-touch $outfile
+touch ownCloud_Health_Check$outfile
+
+# create filename for output file
+dbconfig_outfile=$dir"dbconfig_${customer}_$today.md"
+# create output file
+touch $dbconfig_outfile
 
 # OS detection
 if [ -f /etc/os-release ]; then
@@ -70,7 +93,6 @@ printf "## Number of CPUs:\n" >> $outfile
 printf '```\n' >> $outfile
 lscpu | grep '^CPU(s):' | rev | cut -b 1-2 | rev >> $outfile
 printf '```\n' >> $outfile
-printf "\n" >> $outfile
 
 # RAM
 printf "## RAM\n" >> $outfile
@@ -107,6 +129,10 @@ printf '```\n' >> $outfile
 php -m >> $outfile
 printf '```\n' >> $outfile
 
+#LDAP
+printf "##Ldap Config\n" >> $outfile
+printf '```\n' >> $outfile
+sudo -u $htuser php occ ldap:show-config >> $outfile
 
 # Swappiness
 printf "## Swappiness:\n" >> $outfile
@@ -126,7 +152,15 @@ printf '```\n' >> $outfile
 apache2ctl -M >> $outfile
 printf '```\n' >> $outfile
 
+#Database
+#/usr/sbin/mysqld mysqladmin variables >> $dbconfig_outfile
+
+
 # if OS=RedHat getenforce
 # apache2ctl -M
-# sudo -u www-data /usr/bin/php /var/www/owncloud/occ configreport:generate > config-report_$customer_$today.json
+sudo -u $htuser php occ configreport:generate > config-report_$customer_$today.json
 # SELECT count (*) FROM oc_filecache WHERE storage NOT IN (SELECT numeric_id FROM oc_storages);
+
+wget http://mysqltuner.pl/ -O mysqltuner.pl
+perl mysqltuner.pl >> $dbconfig_outfile
+curl -sL https://raw.githubusercontent.com/richardforth/apache2buddy/master/apache2buddy.pl | perl >> apacheconfig.txt
