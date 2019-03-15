@@ -120,8 +120,7 @@ redis-cli --stat
 Database:
 
 Version 
-- [ ] SELECT VERSION();
-
+- [ ] mysql --version
 
 Specs (per server)  
 - [ ] VM (what kind of) or bare metal:  
