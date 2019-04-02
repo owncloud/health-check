@@ -92,7 +92,7 @@ lsblk >> $outfile
 printf '```\n' >> $outfile
 printf "\n" >> $outfile
 printf '```\n' >> $outfile
-printf "\n" >> $outfile
+printf "Contents of /etc/fstab \n" >> $outfile
 cat /etc/fstab >> $outfile
 printf '```\n' >> $outfile
 
