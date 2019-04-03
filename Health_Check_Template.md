@@ -62,6 +62,9 @@ Swappiness:
 - [ ] Check code intergrity
 (occ integrity:check-core --output=json_pretty -vvv > integrity_check_core.txt)
 
+- [ ] Check Background Jobs (run as root)
+(crontab -u APACHE_USER -l > crontab.txt)
+
 #### Apache
 Module
 - [ ] (apache2ctl -M > apache-modules.txt)
