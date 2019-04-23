@@ -120,7 +120,7 @@ redis-cli --stat
 
 - [ ] What kind and which Version of Database: 
 
-Database:
+## Database:
 
 Version 
 - [ ] mysql --version
@@ -143,6 +143,9 @@ Partitions:
 
 Swappiness:  
 - [ ] (cat /proc/sys/vm/swappiness)
+
+Tuning:
+- [ ] https://github.com/major/MySQLTuner-perl
 
 ## Redis
 
