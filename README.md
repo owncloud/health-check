@@ -1,4 +1,4 @@
-# health-check
+# ownCloud health-check
 Collection of best practices and test scripts for recommendations.
 
 The general sequence of steps is listed in [Health_Check_Template.md](https://github.com/owncloud/health-check/blob/master/Health_Check_Template.md).
